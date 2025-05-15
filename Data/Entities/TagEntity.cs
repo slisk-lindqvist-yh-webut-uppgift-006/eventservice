@@ -13,6 +13,9 @@ public class TagEntity
     [Column(TypeName = "nvarchar(100)")]
     public string TagName { get; set; } = null!;
     
+    [Column(TypeName = "nvarchar(255)")]
+    public string? Description { get; set; }
+    
     [InverseProperty(nameof(EventEntity.Tag))]
     public virtual ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
 }

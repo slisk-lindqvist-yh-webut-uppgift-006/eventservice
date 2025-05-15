@@ -13,6 +13,9 @@ public class StatusEntity
     [Column(TypeName = "nvarchar(100)")]
     public string StatusName { get; set; } = null!;
     
+    [Column(TypeName = "nvarchar(255)")]
+    public string? Description { get; set; }
+    
     [InverseProperty(nameof(EventEntity.EventStatus))]
     public virtual ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
 }
