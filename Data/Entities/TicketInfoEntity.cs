@@ -23,8 +23,8 @@ public class TicketInfoEntity
     public int TicketsLeft { get; set; } // Set to TicketsTotal initially
     
     // One-to-one with EventEntity
-    public EventEntity Event { get; set; } = null!;
+    public virtual EventEntity Event { get; set; } = null!;
     
     // One-to-many with TicketPurchaseEntity
-    public ICollection<TicketPurchaseEntity> TicketPurchases { get; set; } = new List<TicketPurchaseEntity>();
+    public virtual ICollection<TicketPurchaseEntity> TicketPurchases { get; set; } = new List<TicketPurchaseEntity>();
 }

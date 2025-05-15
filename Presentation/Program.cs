@@ -16,8 +16,11 @@ builder.Services.AddScoped<ITicketInfoRepository, TicketInfoRepository>();
 builder.Services.AddScoped<ITicketPurchaseRepository, TicketPurchaseRepository>();
 
 builder.Services.AddScoped<IEventService, EventService>();
-builder.Services.AddDbContext<DataContext>(x =>
-    x.UseSqlite(builder.Configuration.GetConnectionString("EventsDatabaseConnection")));
+builder.Services.AddDbContext<DataContext>(x => x.UseLazyLoadingProxies()
+    .UseSqlite(builder.Configuration.GetConnectionString("EventsDatabaseConnection")));
+
+// builder.Services.AddDbContext<DataContext>(x => x.UseLazyLoadingProxies()
+//     .UseSqlServer(builder.Configuration.GetConnectionString("EventsDatabaseConnection")));
 
 var app = builder.Build();
 app.MapOpenApi();

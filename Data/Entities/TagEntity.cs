@@ -14,5 +14,5 @@ public class TagEntity
     public string TagName { get; set; } = null!;
     
     [InverseProperty(nameof(EventEntity.Tag))]
-    public ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
+    public virtual ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
 }

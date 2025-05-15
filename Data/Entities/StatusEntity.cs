@@ -14,5 +14,5 @@ public class StatusEntity
     public string StatusName { get; set; } = null!;
     
     [InverseProperty(nameof(EventEntity.EventStatus))]
-    public ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
+    public virtual ICollection<EventEntity> Events { get; set; } = new List<EventEntity>();
 }

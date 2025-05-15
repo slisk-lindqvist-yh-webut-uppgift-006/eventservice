@@ -12,7 +12,7 @@ public class TicketPurchaseEntity
         
         [ForeignKey(nameof(TicketInfo)), Column(TypeName = "varchar(36)")]
         public string TicketInfoId { get; set; } = null!;
-        public TicketInfoEntity TicketInfo { get; set; } = null!;
+        public virtual TicketInfoEntity TicketInfo { get; set; } = null!;
         
         [Column(TypeName = "varchar(36)")]
         public string BuyerId { get; set; } = null!; // Links to customer/user

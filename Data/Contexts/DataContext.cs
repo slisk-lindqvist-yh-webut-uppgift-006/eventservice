@@ -31,12 +31,13 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
                 .WithMany(ti => ti.TicketPurchases)
                 .HasForeignKey(tp => tp.TicketInfoId)
                 .IsRequired();
-
-            // Many-to-many: EventEntity ↔ TagEntity
+            
+            // One-to-many: Clarification. . . 
             modelBuilder.Entity<EventEntity>()
-                .HasMany(e => e.Tags)
+                .HasOne(e => e.Tag)
                 .WithMany(t => t.Events)
-                .UsingEntity(j => j.ToTable("EventTags"));
+                .HasForeignKey(e => e.TagId)
+                .IsRequired();
             
             // Ensure unique indexes for Tag and Status
             modelBuilder.Entity<TagEntity>()

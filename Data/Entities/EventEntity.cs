@@ -38,19 +38,17 @@ public class EventEntity
     
     [ForeignKey(nameof(Location)), Column(TypeName = "varchar(36)")]
     public string LocationId { get; set; } = null!;
-    public LocationEntity Location { get; set; } = null!;
+    public virtual LocationEntity Location { get; set; } = null!;
     
     [ForeignKey(nameof(TicketInfo)), Column(TypeName = "varchar(36)")]
     public string TicketInfoId { get; set; } = null!;
-    public TicketInfoEntity TicketInfo { get; set; } = null!;
+    public virtual TicketInfoEntity TicketInfo { get; set; } = null!;
     
     [ForeignKey(nameof(Tag))]
     public int TagId { get; set; }
-    public TagEntity Tag { get; set; } = null!;
+    public virtual TagEntity Tag { get; set; } = null!;
     
     [ForeignKey(nameof(EventStatus))]
     public int StatusId { get; set; }
-    public StatusEntity EventStatus { get; set; } = null!;
-    
-    public ICollection<TagEntity> Tags { get; set; } = new List<TagEntity>();
+    public virtual StatusEntity EventStatus { get; set; } = null!;
 }
