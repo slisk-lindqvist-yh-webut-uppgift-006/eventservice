@@ -84,4 +84,7 @@ fabric.properties
 Presentation/appsettings.json
 Presentation/appsettings.Development.json
 
+# SQLite Database
+Data/Databases/
+
 # End of https://www.toptal.com/developers/gitignore/api/rider
