@@ -32,6 +32,12 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
                 .HasForeignKey(tp => tp.TicketInfoId)
                 .IsRequired();
 
+            // Many-to-many: EventEntity ↔ TagEntity
+            modelBuilder.Entity<EventEntity>()
+                .HasMany(e => e.Tags)
+                .WithMany(t => t.Events)
+                .UsingEntity(j => j.ToTable("EventTags"));
+            
             // Ensure unique indexes for Tag and Status
             modelBuilder.Entity<TagEntity>()
                 .HasIndex(t => t.TagName)

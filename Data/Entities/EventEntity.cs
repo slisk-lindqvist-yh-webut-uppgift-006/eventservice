@@ -51,4 +51,6 @@ public class EventEntity
     [ForeignKey(nameof(EventStatus))]
     public int StatusId { get; set; }
     public StatusEntity EventStatus { get; set; } = null!;
+    
+    public ICollection<TagEntity> Tags { get; set; } = new List<TagEntity>();
 }

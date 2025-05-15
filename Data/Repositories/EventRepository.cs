@@ -14,4 +14,3 @@ public class EventRepository(DbContext context)
 {
     
 }
-
